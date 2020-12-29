@@ -1,4 +1,3 @@
-// Self Number가 아니라면 index에 1 넣어주기
 const N = 1000;
 const selfNumber = new Array(N).fill(false);
 
