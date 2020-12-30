@@ -47,9 +47,11 @@ for (let z = 0; z < obj.length; z++) {
 }
 console.log(arr);
 
+// -------------------------------------------------------------------------------------------------------
+
 // 개선 코드
 let fs = require('fs');
-let input = fs.readFileSync('/dev/stdin').toString().split("");
+let input = fs.readFileSync('/dev/stdin').toString().split(" ");
 
 let resultArr = [];
 let result = "";
