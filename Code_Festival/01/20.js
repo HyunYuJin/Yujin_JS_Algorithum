@@ -7,3 +7,13 @@ let div = input.reduce((a, b) => {
 });
 
 console.log(div[0], div[1]);
+
+// ------------------------------------------------------
+
+// ☝해설은 어찌 풀었나용?
+
+const num = ["7", "2"];
+
+let val1 = Math.floor(parseInt(num[0], 10) / parseInt(num[1], 10));
+let val2 = parseInt(num[0], 10) % parseInt(num[1], 10);
+console.log(val1, val2);
