@@ -10,3 +10,13 @@ for (let i = 0; i < input.length; i++) {
 }
 
 console.log(input.join(""));
+
+
+// ------------------------------------------------------
+
+// 굳이 for문을 돌릴 필요 없이
+
+/* const input = "querty"
+console.log(input.split("q").join("e")); */
+
+// q를 잘라서 그 부분을 e로 이어주면 더 간단하게 해결가능!!

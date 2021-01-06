@@ -36,3 +36,21 @@ for (let i = 0; i < n; i++) {
   beforesum += parseInt(arr[i], 10);
   count += 1;
 }
+
+
+// ------------------------------------------------------
+
+// 사실 굳이 beforesum이 필요하지는 않다.
+// 우리가 필요한건 오직 몇명인지!
+
+/* for (let i = 0; i < n; i++) {
+  sum += parseInt(arr[i], 10);
+
+  if (limit >= sum) {
+    count++;
+  }
+}
+
+console.log(count); */
+
+// 이렇게만 해줬어도 간단하게 해결할 수 있었지롱..!!!

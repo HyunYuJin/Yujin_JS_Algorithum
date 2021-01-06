@@ -27,3 +27,31 @@ for (let i = 0; i < maxScore.length; i++) {
   candy += obj[val];
 }
 console.log(candy);
+
+
+// ------------------------------------------------------
+
+const input = "97 86 86 75 66 55 97 85 97 97 95".split(" ");
+
+let sortInput = input.sort((a, b) => {
+  return a - b;
+});
+
+console.log(sortInput);
+
+let top3 = [];
+let count = 0;
+
+while (top3.length < 4) { // 4로 한 이유는 3으로 하면 top3의 개수가 3개가 되자마자 while문이 종료되기 때문이다!!
+  let value = sortInput.pop();
+
+  // 편하게 includes 함수를 이용해서 배열에 현재 값이 있는지 없는지를 찾을 수 있다!!
+  if (!top3.includes(value)) {
+    top3.push(value);
+  }
+
+  count++;
+}
+
+console.log(top3);
+console.log(count - 1); // 3등까지만 줄거니까!
