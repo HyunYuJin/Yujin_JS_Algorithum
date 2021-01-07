@@ -3,9 +3,9 @@
 
 function bubble(arr) {
     let result = arr.slice();
-  
+
     for (let i = 0; i < result.length - 1; i++) {
-      for (let j = 0; j < i + 1; j++) {
+      for (let j = 0; j < result.length - i; j++) {
         if (result[j] > result[j + 1]) {
           let temp = result[j];
           result[j] = result[j + 1];
@@ -13,14 +13,13 @@ function bubble(arr) {
         }
       }
     }
-  
+
     return result;
   }
-  
+
 const items = "4 2 3 8 5".split(" ").map((a) => {
     return parseInt(a, 10);
 });
-  
+
 console.log(items);
 console.log(bubble(items));
-  
