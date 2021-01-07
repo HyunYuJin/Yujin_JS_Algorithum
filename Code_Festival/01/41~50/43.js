@@ -8,3 +8,17 @@ function solution(num) {
 }
 
 console.log(solution(num));
+
+
+// ------------------------------------------------------
+
+// 원시적인 방법도 알아두자!!
+let num = "32";
+let arrayBinary = [];
+
+while (num) { // num이 0이 될 때까지!
+  arrayBinary.push(num % 2);
+  num = Math.floor(num / 2);
+}
+
+console.log(arrayBinary.reverse().join(""));
