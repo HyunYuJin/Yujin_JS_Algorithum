@@ -5,7 +5,9 @@ function bubble(arr) {
     let result = arr.slice();
 
     for (let i = 0; i < result.length - 1; i++) {
-      for (let j = 0; j < result.length - i; j++) { // 이미 검사한 배열 요소는 검사할 필요가 없다. 따라서 - i
+      for (let j = 0; j < result.length - i - 1; j++) { // 이미 검사한 배열 요소는 검사할 필요가 없다. 따라서 - i
+        // result[6]이 undefined가 나오는데 이는 숫자형이 아니기 때문에 영향을 주지는 않는다.
+        // 정 찝찝하다면 -1을 더해준다.
         if (result[j] > result[j + 1]) {
           let temp = result[j];
           result[j] = result[j + 1];
