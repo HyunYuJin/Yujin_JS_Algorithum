@@ -22,3 +22,28 @@ function isPrime(n) {
 }
 
 console.log(isPrime(num));
+
+
+// ------------------------------------------------------
+
+// for문을 이용해서 풀기
+
+const prime = 1;
+
+function isPrime(n) {
+  if (n <= 1) {
+    console.log('NO');
+    return false;
+  }
+
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) {
+      console.log('NO');
+      return false;
+    }
+  }
+
+  console.log('YES');
+}
+
+isPrime(prime);
