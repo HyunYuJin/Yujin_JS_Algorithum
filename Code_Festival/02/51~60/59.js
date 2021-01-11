@@ -16,3 +16,16 @@ let deleteIndex = input.length;
 result.splice(startIndex, deleteIndex, input);
 
 console.log(result.join(""));
+
+
+// ------------------------------------------------------
+
+// padStart('주어진 길이', '채울 문자열'): 주어진 길이만큼 왼쪽에 주어진 문자열을 채운다.
+// padEnd('주어진 길이', '채울 문자열'): 주어진 길이만큼 오른쪽에 주어진 문자열을 채운다.
+
+const input = "hi";
+const n = 25 + parseInt(input.length / 2, 10);
+
+const left = input.padStart(n, "=");
+const right = left.padEnd(50, "=");
+console.log(right);
