@@ -18,14 +18,63 @@ function hanoi(num, start, end, temp) {
     }
 
     // 원반이 n-1개를 경유 기둥으로 옮기고
-    hanoi(num - 1, temp, end, start);
+    hanoi(num - 1, start, temp, end);
     // 가장 큰 원반을 목표기둥으로
-    route.push([temp, end]);
+    route.push([start, end]);
     // 경유기둥과 시작기둥을 바꾼다.
-    hanoi(num - 1, start, end, temp);
+    hanoi(num - 1, temp, end, start);
 
 }
 
 hanoi(3, 'A', 'B', 'C');
 console.log(route);
 console.log(route.length);
+
+
+// ------------------------------------------------------
+
+// ⭐⭐너무너무 어려워하던 재귀 이해하기!⭐⭐
+
+// function hanoi(num, start, end, temp)
+
+// hanoi(num - 1, start, temp, end); // 원반이 n-1개를 경유 기둥으로 옮기고
+
+// route.push([start, end]); // 가장 큰 원반을 목표기둥으로
+
+// hanoi(num - 1, temp, end, start); // 경유기둥과 시작기둥을 바꾼다.
+
+
+// 1번째 재귀
+// function hanoi(3, 'A', 'B', 'C') : 냥1
+
+    // function hanoi(2, 'A', 'C', 'B') : 냥2
+
+        // function hanoi(1, 'A', 'B', 'C') : 냥3
+            // route.push(['A', 'B']) -> 냥3 입장
+
+        // route.push(['A', 'C']) -> 냥2 입장
+
+    // function hanoi(1, 'B', 'C', 'A') -> 냥2 입장에서 2번째 재귀
+        // route.push(['B', 'C']) -> 1개니까 냥2 입장에서 push
+    
+    // route.push(['A', 'B']) -> 냥1 입장에서 1번째 재귀 나오자마자 있는 push
+
+// 2번째 재귀
+// function hanoi(2, 'C', 'B', 'A') -> 냥1 입장에서 2번째 재귀
+    // function hanoi(1, 'C', 'A', 'B') -> 냥1 입장에서 1번째 재귀 (⭐재귀가 들어가면 코드는 위에서부터 읽히니까!⭐)
+        // route.push(['C', 'A']) -> 1개니까 냥1 입장에서 push
+    
+    // route.push(['C', 'B']) -> 1번째 재귀 나오자마자 있는 push
+// function hanoi(1, 'A', 'B', 'C') -> 냥1 입장에서 다시 2번째 재귀
+    // route.push(['A', 'B']) -> 1개니까 냥1 입장에서 push
+
+// route = [
+//     ['A', 'B'],
+//     ['A', 'C'],
+//     ['B', 'C'],
+//     ['A', 'B'],
+//     ['C', 'A'],
+//     ['C', 'B'],
+//     ['A', 'B']
+// ]
+// 7번!
