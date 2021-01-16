@@ -1,4 +1,4 @@
-// 최장 경로찾 - 너비You're very good at keeping your distance.You're very good at keeping your distance. 우선 탐색
+// 최장 경로찾기 - 너비 우선 탐색
 // 두 정점 사이를 이동할 수 있는 최대 거리를 출력
 // 입력: 1 7
 // 출력: 6
@@ -13,16 +13,17 @@ const graph = {
   7: [3, 5, 6]
 };
 
-let user_input = prompt("두 정점을 입력하세요.").split(" "); // 1 7
+// let user_input = prompt("두 정점을 입력하세요.").split(" "); // 1 7
+const user_input = ["1", "7"];
 let start = parseInt(user_input[0], 10);
 let end = parseInt(user_input[1], 10);
 
 let queue = [start];
 let visited = [];
 
-function solution(n, visited) {
-  let node = n[n.length - 1];
-  let length = 0;
+function solution(q, visited) {
+  let node = q[q.length - 1]; // queue의 마지막 요소를 저장한다.
+  let length = 0; // solution 함수가 실행될 때마다 length를 0으로 초기화
 
   if (node === end) {
     return visited.length;
@@ -37,12 +38,12 @@ function solution(n, visited) {
   let max = [];
 
   for (let next_node in graph[node]) {
-    n.push(graph[node][next_node]);
+    q.push(graph[node][next_node]);
 
-    max.push(length, solution(n, visited));
+    max.push(length, solution(q, visited));
     length = Math.max.apply(null, max);
 
-    n.pop();
+    q.pop();
   }
 
   return length;
