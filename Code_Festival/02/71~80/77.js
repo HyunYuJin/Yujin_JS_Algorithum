@@ -44,3 +44,39 @@ intersection.sort((a, b) => {
 });
 
 console.log(intersection[0].length);
+
+
+// ------------------------------------------------------
+
+// 혼자 이해해보기✍
+
+function solution(input) {
+  let result = [];
+
+  for (let i = 1; i <= input.length; i++) {
+    for (let j = 0; j < i; j++) {
+      // 1, 2, 3, 4, 5, 6
+      // (0, 6) -> 전체 다
+      // (0, 5) (1, 6) -> 맨 앞부터 fixed하며 5개씩
+      // (0, 4) (1, 7) (2, 7) -> 맨 앞부터 fixed하며 4개씩
+      // (0, 3) (1, 4) (2, 5) (3, 6) -> 맨 앞부터 fixed하며 3개씩
+      // (0, 2) (1, 3) (2, 4) (3, 5) (4, 6) -> 맨 앞부터 fixed하며 2개씩
+      // (0, 1) (1, 2) (2, 3) (3, 4) (4, 5) (5, 6) -> 맨 앞부터 fixed하며 1개씩
+      result.push(input.slice(j, j + input.length - i + 1));
+    }
+  }
+
+  return result;
+}
+
+const input1 = "ABCDEF";
+const input2 = "CDE";
+const list1 = solution(input1);
+const list2 = solution(input2);
+
+let inter = list1.filter((x) => list2.includes(x));
+inter.sort((a, b) => {
+  return b.length - a.length;
+});
+
+console.log(inter[0].length);
