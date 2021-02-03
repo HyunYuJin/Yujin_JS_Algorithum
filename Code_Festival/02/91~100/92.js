@@ -4,6 +4,17 @@
 // 2. 입력값의 형식은 csv파일형식이며 이과장 '3,000,000', 'S은행', '100-0000-0000-000' 형식
 // 3. 출력값도 csv파일형식이며 이과장 '1,500,000', '1,500,000', 'S은행', '100-0000-0000-000' 형식
 
+function solution(array) {
+  // index[1], index[3] 뽑아서 확인하기
+  const name = array[0];
+  const salary = array[1];
+  const account = array[3];
+
+  if (salary.includes("3") || salary.includes("4") || salary.includes("6")) {
+    console.log("adsf");
+  }
+}
+
 const input = `이대표,'333,356,766','S은행','100-0000-0000-001'
 최차장,'5,000,000','S은행','100-0000-0000-002'
 이과장,'3,200,000','S은행','100-0000-0000-003'
@@ -21,5 +32,36 @@ for (let i of input_array) {
 
 console.log(number);
 
+let result = [];
 let salaryOne = "";
 let salaryTwo = "";
+
+for (let salary of number) {
+  // console.log("월급: ", salary);
+  for (let div_salary of salary) {
+    // console.log("나뉜 월급", div_salary);
+
+    if (div_salary !== "'") {
+      if (div_salary === "3") {
+        salaryOne += "1";
+        salaryTwo += "2";
+      } else if (div_salary === "4") {
+        salaryOne += "2";
+        salaryTwo += "2";
+      } else if (div_salary === "6") {
+        salaryOne += "1";
+        salaryTwo += "5";
+      } else {
+        salaryOne += div_salary;
+        salaryTwo += "0";
+      }
+    }
+  }
+
+  // console.log(salaryOne);
+  // console.log(salaryTwo);
+  result.push([parseInt(salaryOne, 10), parseInt(salaryTwo, 10)]);
+  salaryOne = "";
+  salaryTwo = "";
+}
+console.log(result);
