@@ -7,7 +7,6 @@
 // 스택 안에 같은 스케줄이 없다면 miss, 실행시간은 6초
 
 function solution(input, n) {
-  // n.length만큼 검사해서 stack에 페이지를 쌓아줌
   let stack = [];
   let hit = 0; // 스택 안에 같은 스케줄이 있음
   let miss = 0; // 스택 안에 같은 스케줄이 없음
@@ -42,3 +41,15 @@ function solution(input, n) {
 const i = 3; // 메모리 크기
 const n = "ABCDABEA".split(""); // 들어올 페이지
 console.log(solution(i, n));
+
+
+// ------------------------------------------------------
+
+
+// 조금 더 보충하자면 프레임이 0인 경우에는 굳이 For문 안으로 들어갈 필요 없이
+// 바로 페이지 개수 크기에 6을 곱해주고 끝내버리면 된다!!
+
+if (input === 0) {
+    time = n.length * 6;
+    return time;
+}
