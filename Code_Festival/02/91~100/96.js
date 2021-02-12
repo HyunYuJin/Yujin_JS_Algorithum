@@ -60,14 +60,25 @@ function solution(g) {
     }
   }
 
-  console.log(reverse_g);
-  console.log(max);
-  console.log(y, x);
+  // console.log(reverse_g);
+  // console.log(max);
+  // console.log(y, x);
 
   // #으로 채워주기
   for (let i = y - (max - 1); i < y + 1; i++) {
     for (let j = x - (max - 1); j < x + 1; j++) {
       reverse_g[i][j] = "#";
+    }
+  }
+
+  // 1보다 큰 값은 0으로, 0은 1로 변경하기
+  for (let i = 0; i < height; i++) {
+    for (let j = 0; j < width; j++) {
+      if (reverse_g[i][j] >= 1) {
+        reverse_g[i][j] = 0;
+      } else if (reverse_g[i][j] === 0) {
+        reverse_g[i][j] = 1;
+      }
     }
   }
 
