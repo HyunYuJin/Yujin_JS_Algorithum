@@ -1,38 +1,38 @@
-// 기본 입력부분입니다
-// N, stmp, k를 입력받습니다.
+// 도장찍기
+// 각 위치에서 몇 번 도장이 찍혔는지 그 결과값을 출력하기
+// N, stmp, k는 입력받는다.
 
-// let N = parseInt(prompt('도장의 크기를 입력하세요.'), 10);
-// let stmp = [];
-// for (let i = 0; i < N; i++) {
-// let tmp = prompt('도장을 입력하세요').split(' ').map(x => parseInt(x, 10));
-// stmp.push(tmp);
-// }
-// const k = parseInt(prompt('회전수를 입력하세요'), 10);
-
-let N = 4;
+let N = 4; // 도장 크기
 let stmp = [
   [1, 1, 1, 2],
   [2, 0, 0, 0],
   [1, 1, 1, 1],
   [0, 0, 0, 0]
-];
-const k = 1;
+]; // 도장 모양
+const k = 1; // 회전 수
+
+// 회전 규칙
+// 0번째 행 -> 3번째 열
+// 1번째 행 -> 2번째 열
+// 2번째 행 -> 1번째 열
+// 3번째 행 -> 0번째 열
 
 function solution(stmp, k) {
   N = stmp.length;
-  // 0으로 만들어진 배열 생성
   let p = [];
+  // 우선 0으로 채워진 도장 만들기
   for (let i = 0; i < N; i++) {
     p.push(Array(N).fill(0));
   }
 
-  // 회전시키기 전 최초 1번찍어주기
+  // 회전 전 (최초) 도장 찍기
   p = sum_matrix(p, stmp);
-  // console.log(p);
+  console.log(p);
 
-  //회전시키며 도장찍기
   for (let i = 0; i < k; i++) {
+    // 회전 시키기
     stmp = rotate(stmp);
+    console.log(stmp);
     p = sum_matrix(p, stmp);
   }
 
@@ -42,11 +42,10 @@ function solution(stmp, k) {
 //배열(도장) 회전시키기
 function rotate(stmp) {
   N = stmp.length;
-  // console.log(N);
   let rot = [];
 
   for (let i = 0; i < N; i++) {
-    rot.push(Array(4).fill(0));
+    rot.push(Array(N).fill(0));
   }
 
   for (let i = 0; i < N; i++) {
@@ -60,8 +59,10 @@ function rotate(stmp) {
 
 //행렬 더하기 즉 도장이 찍히는 정도를 더한다.
 function sum_matrix(p, stmp) {
-  for (let i = 0; i < p.length; i++) {
-    for (let j = 0; j < p[0].length; j++) {
+  N = stmp.length;
+
+  for (let i = 0; i < N; i++) {
+    for (let j = 0; j < N; j++) {
       p[i][j] = p[i][j] + stmp[i][j];
     }
   }
