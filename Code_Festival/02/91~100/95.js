@@ -27,12 +27,12 @@ function solution(stmp, k) {
 
   // 회전 전 (최초) 도장 찍기
   p = sum_matrix(p, stmp);
-  console.log(p);
+  // console.log(p);
 
   for (let i = 0; i < k; i++) {
     // 회전 시키기
     stmp = rotate(stmp);
-    console.log(stmp);
+    // console.log(stmp);
     p = sum_matrix(p, stmp);
   }
 
