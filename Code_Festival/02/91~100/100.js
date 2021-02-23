@@ -30,7 +30,7 @@ function puzzle(p, r) {
         } else {
           stack.push(p[i][m - 1]);
         }
-        p[i][m - 1] = 0;
+        p[i][m - 1] = 0; // 해당 위치는 0으로 바꿔준다.
 
         break;
       } else if (i === p.length - 1) {
